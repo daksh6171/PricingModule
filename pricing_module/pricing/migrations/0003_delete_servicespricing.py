@@ -4,13 +4,15 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('pricing', '0002_distanceadditionalprice_distancebaseprice_pricingconfig_timemultiplierfactor'),
+        (
+            "pricing",
+            "0002_distanceadditionalprice_distancebaseprice_pricingconfig_timemultiplierfactor",
+        ),
     ]
 
     operations = [
         migrations.DeleteModel(
-            name='ServicesPricing',
+            name="ServicesPricing",
         ),
     ]

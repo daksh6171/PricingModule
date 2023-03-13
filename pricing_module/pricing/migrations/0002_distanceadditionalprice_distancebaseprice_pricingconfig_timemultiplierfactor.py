@@ -5,46 +5,98 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('pricing', '0001_initial'),
+        ("pricing", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='PricingConfig',
+            name="PricingConfig",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
-                ('is_enabled', models.BooleanField(default=False)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100)),
+                ("is_enabled", models.BooleanField(default=False)),
+                ("created_at", models.DateTimeField(auto_now_add=True)),
+                ("updated_at", models.DateTimeField(auto_now=True)),
             ],
         ),
         migrations.CreateModel(
-            name='TimeMultiplierFactor',
+            name="TimeMultiplierFactor",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('time_in_minutes', models.IntegerField()),
-                ('multiplier_factor', models.DecimalField(decimal_places=2, max_digits=5)),
-                ('pricing_config', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='pricing.pricingconfig')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("time_in_minutes", models.IntegerField()),
+                (
+                    "multiplier_factor",
+                    models.DecimalField(decimal_places=2, max_digits=5),
+                ),
+                (
+                    "pricing_config",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="pricing.pricingconfig",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='DistanceBasePrice',
+            name="DistanceBasePrice",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('distance_in_km', models.DecimalField(decimal_places=2, max_digits=5)),
-                ('base_price', models.DecimalField(decimal_places=2, max_digits=8)),
-                ('pricing_config', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='pricing.pricingconfig')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("distance_in_km", models.DecimalField(decimal_places=2, max_digits=5)),
+                ("base_price", models.DecimalField(decimal_places=2, max_digits=8)),
+                (
+                    "pricing_config",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="pricing.pricingconfig",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='DistanceAdditionalPrice',
+            name="DistanceAdditionalPrice",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('price_per_km', models.DecimalField(decimal_places=2, max_digits=8)),
-                ('pricing_config', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='pricing.pricingconfig')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("price_per_km", models.DecimalField(decimal_places=2, max_digits=8)),
+                (
+                    "pricing_config",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="pricing.pricingconfig",
+                    ),
+                ),
             ],
         ),
     ]
