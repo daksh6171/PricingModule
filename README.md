@@ -21,6 +21,15 @@ pip install -r requirements.txt
 ./manage.py runserver
 ```
 
+## Admin interface and custom forms
+Go to http://localhost:8000/admin
+and type in the credentials as
+```
+username: daksh
+password: Admin@123
+```
+To launch the admin portal of the application and from there you can access the models and insert values from there only instead of hitting the APIs mentioned below
+
 ## cURL
 
 Here is the cURL that can be used to create pricing configs. User can create/list/delete/update pricing configs
